@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset Vice Racing — 3D City Racing</title>
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="game-container"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="speed-box"><span id="speed">0</span><span class="unit">km/h</span></div>
+  <div id="race-box">
+    <div id="timer">0:00.0</div>
+    <div id="checkpoint-label">CHECKPOINT <span id="cp-count">0/10</span></div>
+    <div id="best-label">BEST <span id="best-time">--:--.-</span></div>
+  </div>
+  <canvas id="minimap" width="220" height="220"></canvas>
+  <div id="hint">WASD / Arrows — drive &nbsp;•&nbsp; SPACE — handbrake &nbsp;•&nbsp; R — reset &nbsp;•&nbsp; M — mute</div>
+</div>
+
+<div id="countdown" class="hidden"></div>
+<div id="toast" class="hidden"></div>
+
+<!-- Start menu -->
+<div id="menu">
+  <div class="menu-inner">
+    <div class="menu-kicker">LIFEMETECH PRESENTS</div>
+    <h1 class="menu-title">SUNSET<span>VICE</span></h1>
+    <div class="menu-sub">3D CITY RACING</div>
+    <p class="menu-desc">Race through a neon Vice-City-style waterfront city.<br>Hit every glowing checkpoint as fast as you can.</p>
+    <button id="start-btn">🏁 START RACE</button>
+    <div class="menu-controls">
+      <div><b>W A S D</b> / <b>← ↑ ↓ →</b><span>drive</span></div>
+      <div><b>SPACE</b><span>handbrake / drift</span></div>
+      <div><b>R</b><span>reset car</span></div>
+      <div><b>M</b><span>mute</span></div>
+    </div>
+    <div id="menu-best" class="hidden">🏆 Best time: <span id="menu-best-time"></span></div>
+  </div>
+</div>
+
+<!-- Finish panel -->
+<div id="finish" class="hidden">
+  <div class="menu-inner">
+    <div class="menu-kicker">RACE COMPLETE</div>
+    <h1 class="menu-title small">FINISH!</h1>
+    <div id="final-time" class="final-time">0:00.0</div>
+    <div id="new-record" class="hidden">★ NEW RECORD ★</div>
+    <button id="again-btn">↻ RACE AGAIN</button>
+  </div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
